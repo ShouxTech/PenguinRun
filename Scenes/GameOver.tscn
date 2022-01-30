@@ -102,5 +102,5 @@ __meta__ = {
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -12.0
+volume_db = -3.0
 autoplay = true

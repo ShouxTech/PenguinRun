@@ -61,8 +61,9 @@ public class Penguin : KinematicBody2D {
     }
 
     private void CheckForSpike() {
-        KinematicCollision2D touched = GetLastSlideCollision();
-        if (touched != null) {
+        int slides = GetSlideCount();
+        for (int i = 0; i < slides; i++) {
+            KinematicCollision2D touched = GetSlideCollision(i);
             object name = touched.Collider.Get("name");
             if ((string)name == "Spikes") {
                 GetTree().ChangeScene("res://Scenes/GameOver.tscn");
