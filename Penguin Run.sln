@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Penguin Run", "Penguin Run.csproj", "{3D668505-C422-495C-B934-7F4CBA292DEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D668505-C422-495C-B934-7F4CBA292DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D668505-C422-495C-B934-7F4CBA292DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D668505-C422-495C-B934-7F4CBA292DEF}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{3D668505-C422-495C-B934-7F4CBA292DEF}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{3D668505-C422-495C-B934-7F4CBA292DEF}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{3D668505-C422-495C-B934-7F4CBA292DEF}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
