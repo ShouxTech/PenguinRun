@@ -2,9 +2,9 @@ using Godot;
 using System;
 
 public class Penguin : KinematicBody2D {
-    private float gravity = 200;
-    private float speed = 135;
-    private float jumpForce = 7000;
+    private float gravity = 230;
+    private float speed = 120;
+    private float jumpForce = 7100;
 
     private Vector2 upDirection = new Vector2(0, -1);
 
@@ -29,17 +29,12 @@ public class Penguin : KinematicBody2D {
     private void Move(float delta) {
         velocity.y += delta * gravity;
 
-        if (Input.IsActionPressed("move_left")) {
-            sprite.FlipH = true;
-            sprite.Play("Walking");
-            velocity.x = -speed;
-        } else if (Input.IsActionPressed("move_right")) {
-            sprite.FlipH = false;
-            sprite.Play("Walking");
-            velocity.x = speed;
-        } else {
-            sprite.Play("Default");
-            velocity.x *= 0.65f;
+        sprite.FlipH = false;
+        sprite.Play("Walking");
+        velocity.x = speed;
+
+        if (Input.IsActionPressed("slide")) {
+            sprite.Play("Sliding");
         }
 
         if (Input.IsKeyPressed((int)KeyList.Space) && IsOnFloor()) {
