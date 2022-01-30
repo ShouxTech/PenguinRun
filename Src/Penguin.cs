@@ -13,10 +13,14 @@ public class Penguin : KinematicBody2D {
     private Vector2 velocity;
 
     private AnimatedSprite sprite;
+    private CollisionShape2D collisionShape;
+    private CapsuleShape2D capsuleShape;
 
     public override void _Ready() {
         GameState.Reset();
         sprite = GetNode<AnimatedSprite>("Sprite");
+        collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
+        capsuleShape = (CapsuleShape2D)collisionShape.Shape;
     }
 
     private void MoveOnSlope() {
@@ -38,9 +42,14 @@ public class Penguin : KinematicBody2D {
 
         if (Input.IsActionPressed("slide")) {
             sprite.Play("Sliding");
+            capsuleShape.Height = 0;
+            collisionShape.Position = new Vector2(0, 3);
+        } else {
+            capsuleShape.Height = 8;
+            collisionShape.Position = new Vector2(0, -1);
         }
 
-        if (Input.IsKeyPressed((int)KeyList.Space) && IsOnFloor()) {
+        if (Input.IsActionPressed("jump") && IsOnFloor()) {
             velocity.y -= delta * jumpForce;
         }
 

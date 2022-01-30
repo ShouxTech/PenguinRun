@@ -8,13 +8,13 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
-height = 6.0
+height = 8.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Jumping",
+"name": "Sliding",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -27,15 +27,16 @@ animations = [ {
 "name": "Walking",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Sliding",
+"name": "Jumping",
 "speed": 8.0
 } ]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
