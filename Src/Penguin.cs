@@ -6,6 +6,8 @@ public class Penguin : KinematicBody2D {
     private float speed = 120;
     private float jumpForce = 7100;
 
+    private float timeSinceLastScoreUpdate = 0;
+
     private Vector2 upDirection = new Vector2(0, -1);
 
     private Vector2 velocity;
@@ -13,6 +15,7 @@ public class Penguin : KinematicBody2D {
     private AnimatedSprite sprite;
 
     public override void _Ready() {
+        GameState.Reset();
         sprite = GetNode<AnimatedSprite>("Sprite");
     }
 
@@ -58,13 +61,24 @@ public class Penguin : KinematicBody2D {
         }
     }
 
+    private void CheckOffScreen() {
+        if (Position.y > 160) {
+            GetTree().ChangeScene("res://Scenes/GameOver.tscn");
+        }
+    }
+
     public override void _Process(float delta) {
-        
+        timeSinceLastScoreUpdate += delta;
+        if (timeSinceLastScoreUpdate > 1) {
+            timeSinceLastScoreUpdate = 0;
+            GameState.score++;
+        }
     }
 
     public override void _PhysicsProcess(float delta) {
         Move(delta);
         MoveOnSlope();
         CheckForSpike();
+        CheckOffScreen();
     }
 }
