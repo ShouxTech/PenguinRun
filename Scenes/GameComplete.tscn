@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Assets/Audio/GameOver.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Audio/GameComplete.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Fonts/Minecraft.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Textures/Background/Background.png" type="Texture" id=3]
 [ext_resource path="res://Src/GameOverScoreDisplay.cs" type="Script" id=4]
