@@ -77,6 +77,17 @@ public class Penguin : KinematicBody2D {
         }
     }
 
+    private void CheckIfFinished() {
+        int slides = GetSlideCount();
+        for (int i = 0; i < slides; i++) {
+            KinematicCollision2D touched = GetSlideCollision(i);
+            object name = touched.Collider.Get("name");
+            if ((string)name == "Finish") {
+                GetTree().ChangeScene("res://Scenes/GameComplete.tscn");
+            }
+        }
+    }
+
     public override void _Process(float delta) {
         timeSinceLastScoreUpdate += delta;
         if (timeSinceLastScoreUpdate > 1) {
@@ -90,5 +101,6 @@ public class Penguin : KinematicBody2D {
         MoveOnSlope();
         CheckForSpike();
         CheckOffScreen();
+        CheckIfFinished();
     }
 }
