@@ -11,10 +11,8 @@ public class PlayAgain : Button {
     }
 
     public override void _UnhandledKeyInput(InputEventKey eventKey) {
-        if (eventKey.Pressed) {
-            if (eventKey.Scancode == (int)KeyList.Space) {
-                Play();
-            }
+        if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Space) {
+            Play();
         }
     }
 

@@ -89,6 +89,8 @@ public class Penguin : KinematicBody2D {
     }
 
     public override void _Process(float delta) {
+        if (GameState.paused) return;
+        
         timeSinceLastScoreUpdate += delta;
         if (timeSinceLastScoreUpdate > 1) {
             timeSinceLastScoreUpdate = 0;
@@ -97,6 +99,11 @@ public class Penguin : KinematicBody2D {
     }
 
     public override void _PhysicsProcess(float delta) {
+        if (GameState.paused) {
+            sprite.Play("Default");
+            return;
+        }
+
         Move(delta);
         MoveOnSlope();
         CheckForSpike();

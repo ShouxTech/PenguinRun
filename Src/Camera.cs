@@ -9,6 +9,8 @@ public class Camera : Camera2D {
     }
 
     public override void _Process(float delta) {
+        if (GameState.paused) return;
+        
         Position = new Vector2(Position.x + (100 * delta), Position.y);
         if (penguin.Position.x + 220 < Position.x) {
             GetTree().ChangeScene("res://Scenes/GameOver.tscn");
