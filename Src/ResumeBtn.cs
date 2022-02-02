@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public class ResumeBtn : Button {
-    Control pauseMenu;
+    private Control pauseMenu;
 
     public override void _Ready() {
         pauseMenu = GetParent<Control>();

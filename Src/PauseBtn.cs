@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public class PauseBtn : TextureButton {
-    Control pauseMenu;
+    private Control pauseMenu;
 
     public override void _Ready() {
         pauseMenu = GetNode<Control>("../PauseMenu");

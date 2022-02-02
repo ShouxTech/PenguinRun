@@ -2,8 +2,8 @@ using Godot;
 using System;
 
 public class LoadLevel : Node2D {
-    Node levels;
-    TextureRect backgroundTexture;
+    private Node levels;
+    private TextureRect backgroundTexture;
 
     public override void _Ready() {
         levels = GetNode<Node>("Levels");

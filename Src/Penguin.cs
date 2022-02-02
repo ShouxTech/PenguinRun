@@ -60,12 +60,12 @@ public class Penguin : KinematicBody2D {
         MoveAndSlide(velocity, upDirection, true, 4, Mathf.Deg2Rad(60));
     }
 
-    private void CheckForSpike() {
+    private void CheckForDeadlyObject() {
         int slides = GetSlideCount();
         for (int i = 0; i < slides; i++) {
             KinematicCollision2D touched = GetSlideCollision(i);
-            object name = touched.Collider.Get("name");
-            if ((string)name == "Spikes") {
+            string name = (string)touched.Collider.Get("name");
+            if (name == "Spikes" || name == "Spiders" || name == "Lava") {
                 GetTree().ChangeScene("res://Scenes/GameOver.tscn");
             }
         }
@@ -106,7 +106,7 @@ public class Penguin : KinematicBody2D {
 
         Move(delta);
         MoveOnSlope();
-        CheckForSpike();
+        CheckForDeadlyObject();
         CheckOffScreen();
         CheckIfFinished();
     }
