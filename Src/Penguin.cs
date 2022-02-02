@@ -65,7 +65,7 @@ public class Penguin : KinematicBody2D {
         for (int i = 0; i < slides; i++) {
             KinematicCollision2D touched = GetSlideCollision(i);
             string name = (string)touched.Collider.Get("name");
-            if (name == "Spikes" || name == "Spiders" || name == "Lava") {
+            if (name == "Spikes" || name == "Spiders" || name == "Lava" || name == "Tumbleweeds") {
                 GetTree().ChangeScene("res://Scenes/GameOver.tscn");
             }
         }
